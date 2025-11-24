@@ -224,12 +224,30 @@ export default function Home() {
       </div>
       {/* Stats Section */}
       <section className="py-20 container px-4">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <StatCard number="50+" label="Projects Completed" />
-          <StatCard number="20+" label="Happy Clients" />
-          <StatCard number="1.5+" label="Years Experience" />
-          <StatCard number="∞" label="Creativity" />
-        </div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8, staggerChildren: 0.1 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-6"
+        >
+          {[
+            { number: "50+", label: "Projects Completed" },
+            { number: "20+", label: "Happy Clients" },
+            { number: "1.5+", label: "Years Experience" },
+            { number: "∞", label: "Creativity" }
+          ].map((stat, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30, scale: 0.8 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <StatCard number={stat.number} label={stat.label} />
+            </motion.div>
+          ))}
+        </motion.div>
       </section>
       {/* Projects Section */}
       <section id="work" className="py-32 container px-4 relative">
@@ -247,44 +265,69 @@ export default function Home() {
           <p className="text-muted-foreground text-lg">Hover to see the magic ✨</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <ProjectCard
-            title="MeekHub"
-            category="Service Marketplace"
-            description="Instant booking platform for local services like food, repairs, taxis, doctors, salons & more. Multi-category service discovery."
-            color="from-blue-500 to-cyan-500"
-            delay={0}
-            link="https://meekhub.vercel.app"
-            preview={sameroochubPreview}
-          />
-          <ProjectCard
-            title="GreetVerse"
-            category="Personalized Greetings"
-            description="Create beautiful personalized greeting websites with photo carousels, background music, AI suggestions & shareable links for any occasion."
-            color="from-pink-500 to-rose-500"
-            delay={0.1}
-            link="https://greetverse.vercel.app"
-            preview={greetversePreview}
-          />
-          <ProjectCard
-            title="StudyRana"
-            category="Content Extractor"
-            description="Upload .txt files to extract video (m3u8) and PDF links. Organized file management for study resources."
-            color="from-purple-500 to-indigo-500"
-            delay={0.2}
-            link="https://studyrana.netlify.app"
-            preview={studyranaPreview}
-          />
-          <ProjectCard
-            title="RanaXHack Info"
-            category="OSINT Toolkit"
-            description="Open Source Intelligence framework for phone info, Instagram lookup, Telegram OSINT, UPI details & digital forensics."
-            color="from-red-500 to-orange-500"
-            delay={0.3}
-            link="https://leaked-info.vercel.app"
-            preview={ranaxhackPreview}
-          />
-        </div>
+        <motion.div 
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          {[
+            {
+              title: "MeekHub",
+              category: "Service Marketplace",
+              description: "Instant booking platform for local services like food, repairs, taxis, doctors, salons & more. Multi-category service discovery.",
+              color: "from-blue-500 to-cyan-500",
+              link: "https://meekhub.vercel.app",
+              preview: sameroochubPreview,
+              delay: 0
+            },
+            {
+              title: "GreetVerse",
+              category: "Personalized Greetings",
+              description: "Create beautiful personalized greeting websites with photo carousels, background music, AI suggestions & shareable links for any occasion.",
+              color: "from-pink-500 to-rose-500",
+              link: "https://greetverse.vercel.app",
+              preview: greetversePreview,
+              delay: 0.1
+            },
+            {
+              title: "StudyRana",
+              category: "Content Extractor",
+              description: "Upload .txt files to extract video (m3u8) and PDF links. Organized file management for study resources.",
+              color: "from-purple-500 to-indigo-500",
+              link: "https://studyrana.netlify.app",
+              preview: studyranaPreview,
+              delay: 0.2
+            },
+            {
+              title: "RanaXHack Info",
+              category: "OSINT Toolkit",
+              description: "Open Source Intelligence framework for phone info, Instagram lookup, Telegram OSINT, UPI details & digital forensics.",
+              color: "from-red-500 to-orange-500",
+              link: "https://leaked-info.vercel.app",
+              preview: ranaxhackPreview,
+              delay: 0.3
+            }
+          ].map((project, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 50, rotateX: -10 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+              transition={{ duration: 0.6, delay: project.delay, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
+              <ProjectCard
+                title={project.title}
+                category={project.category}
+                description={project.description}
+                color={project.color}
+                delay={project.delay}
+                link={project.link}
+                preview={project.preview}
+              />
+            </motion.div>
+          ))}
+        </motion.div>
       </section>
       {/* About Section */}
       <section id="about" className="py-32 container px-4 relative">
