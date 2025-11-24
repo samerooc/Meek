@@ -31,39 +31,28 @@ export default function Home() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  const handleSubmitForm = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmitForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitStatus("idle");
 
-    try {
-      if (formRef.current) {
-        const formData = new FormData(formRef.current);
-        
-        // Using Formspree - just change the endpoint to YOUR Formspree form endpoint
-        const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
-          method: "POST",
-          body: formData,
-          headers: {
-            "Accept": "application/json"
-          }
-        });
+    if (formRef.current) {
+      const formData = new FormData(formRef.current);
+      const name = formData.get("from_name");
+      const email = formData.get("from_email");
+      const projectType = formData.get("project_type");
+      const message = formData.get("message");
 
-        if (response.ok) {
-          setSubmitStatus("success");
-          formRef.current.reset();
-          setTimeout(() => setSubmitStatus("idle"), 3000);
-        } else {
-          setSubmitStatus("error");
-          setTimeout(() => setSubmitStatus("idle"), 3000);
-        }
-      }
-    } catch (error) {
-      console.error("Form submission failed:", error);
-      setSubmitStatus("error");
-      setTimeout(() => setSubmitStatus("idle"), 3000);
-    } finally {
+      // Create Telegram message
+      const telegramMessage = `📧 *New Contact Form Submission*\n\n*Name:* ${name}\n*Email:* ${email}\n*Project Type:* ${projectType}\n\n*Message:*\n${message}`;
+      const telegramUrl = `https://t.me/Marco_x_terminator?text=${encodeURIComponent(telegramMessage)}`;
+
+      // Open Telegram
+      window.open(telegramUrl, "_blank");
+
+      setSubmitStatus("success");
+      formRef.current.reset();
       setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus("idle"), 3000);
     }
   };
 
@@ -429,17 +418,7 @@ export default function Home() {
                   animate={{ opacity: 1, y: 0 }}
                   className="p-4 rounded-lg bg-green-500/20 border border-green-500/50 text-green-400 text-sm text-center"
                 >
-                  ✅ Message sent successfully! I'll get back to you soon.
-                </motion.div>
-              )}
-
-              {submitStatus === "error" && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="p-4 rounded-lg bg-red-500/20 border border-red-500/50 text-red-400 text-sm text-center"
-                >
-                  ❌ Failed to send message. Please try again or contact directly.
+                  ✅ Redirecting to Telegram! Send the message there.
                 </motion.div>
               )}
 
