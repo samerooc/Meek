@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
+import emailjs from "@emailjs/browser";
 import { Navbar } from "@/components/layout/navbar";
 import { Card3D } from "@/components/ui/3d-card";
 import { Button } from "@/components/ui/button";
@@ -18,6 +19,9 @@ export default function Home() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const formRef = useRef<HTMLFormElement>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -25,8 +29,38 @@ export default function Home() {
     };
 
     window.addEventListener("mousemove", handleMouseMove);
+    
+    // Initialize EmailJS (free tier)
+    emailjs.init("YOUR_PUBLIC_KEY_HERE");
+    
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
+
+  const handleSubmitForm = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      if (formRef.current) {
+        // Sending to your email using EmailJS
+        await emailjs.sendForm(
+          "YOUR_SERVICE_ID", 
+          "YOUR_TEMPLATE_ID", 
+          formRef.current
+        );
+        setSubmitStatus("success");
+        formRef.current.reset();
+        setTimeout(() => setSubmitStatus("idle"), 3000);
+      }
+    } catch (error) {
+      console.error("Email send failed:", error);
+      setSubmitStatus("error");
+      setTimeout(() => setSubmitStatus("idle"), 3000);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-white overflow-hidden">
@@ -343,28 +377,74 @@ export default function Home() {
             viewport={{ once: true }}
             className="glass-panel p-10 rounded-2xl border border-white/10 neon-glow"
           >
-            <form className="space-y-6">
+            <form ref={formRef} onSubmit={handleSubmitForm} className="space-y-6">
               <div className="grid grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-primary tracking-widest">NAME</label>
-                  <Input className="bg-background/50 border-secondary/30 focus:border-secondary text-white placeholder:text-muted-foreground/50 rounded-lg" placeholder="John Doe" />
+                  <Input 
+                    name="from_name"
+                    className="bg-background/50 border-secondary/30 focus:border-secondary text-white placeholder:text-muted-foreground/50 rounded-lg" 
+                    placeholder="John Doe"
+                    required
+                  />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-primary tracking-widest">EMAIL</label>
-                  <Input className="bg-background/50 border-secondary/30 focus:border-secondary text-white placeholder:text-muted-foreground/50 rounded-lg" placeholder="john@example.com" />
+                  <Input 
+                    name="from_email"
+                    type="email"
+                    className="bg-background/50 border-secondary/30 focus:border-secondary text-white placeholder:text-muted-foreground/50 rounded-lg" 
+                    placeholder="john@example.com"
+                    required
+                  />
                 </div>
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium text-primary tracking-widest">PROJECT TYPE</label>
-                <Input className="bg-background/50 border-secondary/30 focus:border-secondary text-white placeholder:text-muted-foreground/50 rounded-lg" placeholder="Web App / 3D Experience / Other" />
+                <Input 
+                  name="project_type"
+                  className="bg-background/50 border-secondary/30 focus:border-secondary text-white placeholder:text-muted-foreground/50 rounded-lg" 
+                  placeholder="Web App / 3D Experience / Other"
+                  required
+                />
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium text-primary tracking-widest">MESSAGE</label>
-                <Textarea className="bg-background/50 border-secondary/30 focus:border-secondary text-white placeholder:text-muted-foreground/50 min-h-[150px] rounded-lg" placeholder="Tell me about your project..." />
+                <Textarea 
+                  name="message"
+                  className="bg-background/50 border-secondary/30 focus:border-secondary text-white placeholder:text-muted-foreground/50 min-h-[150px] rounded-lg" 
+                  placeholder="Tell me about your project..."
+                  required
+                />
               </div>
+
+              {submitStatus === "success" && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 rounded-lg bg-green-500/20 border border-green-500/50 text-green-400 text-sm text-center"
+                >
+                  ✅ Message sent successfully! I'll get back to you soon.
+                </motion.div>
+              )}
+
+              {submitStatus === "error" && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 rounded-lg bg-red-500/20 border border-red-500/50 text-red-400 text-sm text-center"
+                >
+                  ❌ Failed to send message. Please try again or contact directly.
+                </motion.div>
+              )}
+
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                <Button className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white font-bold py-6 rounded-lg text-lg shadow-[0_0_30px_hsl(var(--primary)/0.4)] magnetic-btn">
-                  Send Message
+                <Button 
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white font-bold py-6 rounded-lg text-lg shadow-[0_0_30px_hsl(var(--primary)/0.4)] magnetic-btn disabled:opacity-50"
+                >
+                  {isSubmitting ? "Sending..." : "Send Message"}
                   <Sparkles className="ml-2 w-5 h-5" />
                 </Button>
               </motion.div>
