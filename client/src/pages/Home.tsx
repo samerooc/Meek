@@ -73,7 +73,7 @@ export default function Home() {
       />
       <Navbar />
       {/* Hero Section */}
-      <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
+      <section className="relative h-screen sm:min-h-screen w-full flex items-center justify-center overflow-hidden pt-20 sm:pt-0">
         <motion.div
           style={{ y, opacity }}
           className="absolute inset-0 z-0"
@@ -250,7 +250,7 @@ export default function Home() {
         </motion.div>
       </section>
       {/* Projects Section */}
-      <section id="work" className="py-16 md:py-32 container px-4 relative">
+      <section id="work" className="py-16 md:py-20 sm:py-32 container px-4 relative">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -330,7 +330,7 @@ export default function Home() {
         </motion.div>
       </section>
       {/* About Section */}
-      <section id="about" className="py-16 md:py-32 container px-4 relative">
+      <section id="about" className="py-16 md:py-20 sm:py-32 container px-4 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -376,7 +376,7 @@ export default function Home() {
         </div>
       </section>
       {/* Contact Section */}
-      <section id="contact" className="py-16 md:py-32 container px-4 relative">
+      <section id="contact" className="py-16 md:py-20 sm:py-32 container px-4 relative">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-3xl transform -skew-y-2 -z-10" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
