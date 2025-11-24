@@ -1,4 +1,5 @@
 server/
 shared/
-*.ts
-!client/
+.git/
+.env
+.env.local
