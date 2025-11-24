@@ -121,9 +121,11 @@ export default function Home() {
               </motion.div>
 
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button size="lg" variant="outline" className="rounded-full px-8 py-6 text-lg border-secondary text-secondary hover:bg-secondary/10 hover:text-secondary transition-all animate-border-glow">
-                  Let's Connect
-                </Button>
+                <a href="#contact" className="inline-block">
+                  <Button size="lg" variant="outline" className="rounded-full px-8 py-6 text-lg border-secondary text-secondary hover:bg-secondary/10 hover:text-secondary transition-all animate-border-glow">
+                    Let's Connect
+                  </Button>
+                </a>
               </motion.div>
             </div>
 
