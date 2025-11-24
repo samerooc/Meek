@@ -73,7 +73,7 @@ export default function Home() {
       />
       <Navbar />
       {/* Hero Section */}
-      <section className="relative h-screen sm:min-h-screen w-full flex items-center justify-center overflow-hidden pt-20 sm:pt-0">
+      <section className="relative w-full flex items-center justify-center overflow-visible pt-32 pb-16 sm:pt-0 sm:min-h-screen md:min-h-screen" style={{ minHeight: "100vh" }}>
         <motion.div
           style={{ y, opacity }}
           className="absolute inset-0 z-0"
@@ -100,7 +100,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="container relative z-10 px-4 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12 items-center">
+        <div className="container relative z-10 px-4 w-full grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-12 items-center">
           <motion.div
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -116,9 +116,9 @@ export default function Home() {
               </span>
             </motion.div>
 
-            <h1 className="text-2xl sm:text-4xl md:text-8xl font-bold mb-4 sm:mb-6 leading-snug sm:leading-tight">
-              CREATIVE <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary neon-text animate-gradient">
+            <h1 className="text-xl sm:text-3xl md:text-8xl font-bold mb-2 sm:mb-6 leading-tight w-full">
+              <div className="break-words">CREATIVE</div>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary neon-text animate-gradient block">
                 DEVELOPER
               </span>
             </h1>
@@ -127,14 +127,14 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="mb-8 max-w-md"
+              className="mb-6 sm:mb-8 w-full"
             >
-              <p className="text-base sm:text-lg md:text-xl leading-relaxed font-medium">
+              <p className="text-sm sm:text-base md:text-lg leading-relaxed font-medium max-w-full">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary via-primary to-secondary">Building immersive</span> digital experiences with{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-bold">code</span> and{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-primary font-bold">creativity.</span>
               </p>
-              <p className="text-base sm:text-lg md:text-xl leading-relaxed font-medium mt-4">
+              <p className="text-sm sm:text-base md:text-lg leading-relaxed font-medium mt-3 sm:mt-4 max-w-full">
                 Specializing in{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-primary font-bold">3D interactions</span>, motion design, and{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-primary font-bold">modern tech</span>.
