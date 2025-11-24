@@ -61,9 +61,9 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-white overflow-hidden">
       {/* Animated Background Grid */}
       <div className="fixed inset-0 cyber-grid opacity-10 pointer-events-none" />
-      {/* Cursor Glow */}
+      {/* Cursor Glow - Hidden on mobile */}
       <motion.div
-        className="fixed w-48 h-48 rounded-full pointer-events-none mix-blend-screen"
+        className="hidden md:block fixed w-48 h-48 rounded-full pointer-events-none mix-blend-screen"
         style={{
           background: "radial-gradient(circle, hsl(var(--primary) / 0.15) 0%, transparent 70%)",
           x: mousePosition.x - 96,
@@ -86,21 +86,21 @@ export default function Home() {
           />
         </motion.div>
 
-        {/* Floating Orbs */}
+        {/* Floating Orbs - Smaller on mobile */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div
             animate={{ y: [0, -50, 0], x: [0, 20, 0] }}
             transition={{ duration: 8, repeat: Infinity }}
-            className="absolute top-20 left-1/4 w-72 h-72 rounded-full bg-primary/10 blur-3xl"
+            className="absolute top-20 left-1/4 w-32 h-32 sm:w-56 sm:h-56 md:w-72 md:h-72 rounded-full bg-primary/10 blur-3xl"
           />
           <motion.div
             animate={{ y: [0, 50, 0], x: [0, -20, 0] }}
             transition={{ duration: 10, repeat: Infinity }}
-            className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-secondary/10 blur-3xl"
+            className="absolute bottom-1/4 right-1/4 w-40 h-40 sm:w-72 sm:h-72 md:w-96 md:h-96 rounded-full bg-secondary/10 blur-3xl"
           />
         </div>
 
-        <div className="container relative z-10 px-4 w-full grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-12 items-center">
+        <div className="container mx-auto max-w-7xl relative z-10 px-3 sm:px-4 md:px-6 w-full grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-12 items-center">
           <motion.div
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -143,7 +143,7 @@ export default function Home() {
 
             <div className="flex gap-4 flex-wrap">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button size="lg" className="bg-gradient-to-r from-primary to-purple-600 hover:opacity-90 text-white border-none rounded-full px-8 py-6 text-lg shadow-[0_0_30px_hsl(var(--primary)/0.6)] transition-all magnetic-btn">
+                <Button size="lg" className="bg-gradient-to-r from-primary to-purple-600 hover:opacity-90 text-white border-none rounded-full px-8 py-6 text-xs sm:text-sm md:text-base lg:text-lg shadow-[0_0_20px sm:shadow-[0_0_30px_hsl(var(--primary)/0.6)] transition-all magnetic-btn">
                   View My Work
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
@@ -223,13 +223,13 @@ export default function Home() {
         </div>
       </div>
       {/* Stats Section */}
-      <section className="py-20 container px-4">
+      <section className="py-12 sm:py-16 md:py-20 container mx-auto max-w-7xl px-3 sm:px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, staggerChildren: 0.1 }}
           viewport={{ once: true }}
-          className="grid grid-cols-2 grid-cols-2 md:grid-cols-4 gap-6"
+          className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 md:gap-6"
         >
           {[
             { number: "50+", label: "Projects Completed" },
@@ -250,13 +250,13 @@ export default function Home() {
         </motion.div>
       </section>
       {/* Projects Section */}
-      <section id="work" className="py-8 sm:py-12 md:py-20 container px-4 relative">
+      <section id="work" className="py-8 sm:py-12 md:py-20 container mx-auto max-w-7xl px-3 sm:px-4 md:px-6 relative">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-8 sm:mb-12 md:mb-20"
+          className="text-center mb-6 sm:mb-10 md:mb-20"
         >
           <h2 className="text-3xl sm:text-4xl md:text-7xl font-bold mb-6">
             SELECTED <br />
@@ -330,8 +330,8 @@ export default function Home() {
         </motion.div>
       </section>
       {/* About Section */}
-      <section id="about" className="py-8 sm:py-12 md:py-20 container px-4 relative">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
+      <section id="about" className="py-8 sm:py-12 md:py-20 container mx-auto max-w-7xl px-3 sm:px-4 md:px-6 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10 md:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -376,10 +376,10 @@ export default function Home() {
         </div>
       </section>
       {/* Contact Section */}
-      <section id="contact" className="py-8 sm:py-12 md:py-20 container px-4 relative">
+      <section id="contact" className="py-8 sm:py-12 md:py-20 container mx-auto max-w-7xl px-3 sm:px-4 md:px-6 relative">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-3xl transform -skew-y-2 -z-10" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10 md:gap-16 items-start">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -470,7 +470,7 @@ export default function Home() {
                 <Button 
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white font-bold py-6 rounded-lg text-lg shadow-[0_0_30px_hsl(var(--primary)/0.4)] magnetic-btn disabled:opacity-50"
+                  className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white font-bold py-6 rounded-lg text-xs sm:text-sm md:text-base lg:text-lg shadow-[0_0_20px sm:shadow-[0_0_30px_hsl(var(--primary)/0.4)] magnetic-btn disabled:opacity-50"
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
                   <Sparkles className="ml-2 w-5 h-5" />
