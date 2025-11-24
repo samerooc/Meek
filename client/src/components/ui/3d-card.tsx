@@ -52,14 +52,14 @@ export function Card3D({ children, className }: Card3DProps) {
         rotateX,
         transformStyle: "preserve-3d",
       }}
-      className={cn("relative h-full w-full transition-all duration-200 ease-linear", className)}
+      className={cn("relative h-full w-full transition-all duration-200 ease-linear group", className)}
     >
       <div
         style={{
           transform: "translateZ(75px)",
           transformStyle: "preserve-3d",
         }}
-        className="absolute inset-0 h-full w-full rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 p-6 shadow-xl backdrop-blur-xl border border-white/10"
+        className="relative h-full w-full rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 p-4 sm:p-6 shadow-xl backdrop-blur-xl border border-white/10"
       >
         {children}
       </div>

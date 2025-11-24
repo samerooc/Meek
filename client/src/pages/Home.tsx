@@ -500,9 +500,9 @@ function ProjectCard({ title, category, description, color, delay, link, preview
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay }}
       viewport={{ once: true }}
-      className="h-auto sm:h-[280px] md:h-[350px] lg:h-[420px] w-full perspective-1000 grid-item-hover"
+      className="w-full perspective-1000 grid-item-hover"
     >
-      <Card3D>
+      <Card3D className="h-full">
         <div className="relative h-24 sm:h-32 md:h-40 lg:h-48 w-full rounded-lg bg-gradient-to-br overflow-hidden mb-2 sm:mb-3 md:mb-4 lg:mb-6">
           <img 
             src={preview} 
