@@ -100,7 +100,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="container relative z-10 px-4 grid md:grid-cols-2 gap-12 items-center">
+        <div className="container relative z-10 px-4 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12 items-center">
           <motion.div
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -116,7 +116,7 @@ export default function Home() {
               </span>
             </motion.div>
 
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-8xl font-bold mb-6 leading-tight">
               CREATIVE <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary neon-text animate-gradient">
                 DEVELOPER
@@ -229,7 +229,7 @@ export default function Home() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, staggerChildren: 0.1 }}
           viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6"
+          className="grid grid-cols-2 grid-cols-2 md:grid-cols-4 gap-6"
         >
           {[
             { number: "50+", label: "Projects Completed" },
@@ -250,7 +250,7 @@ export default function Home() {
         </motion.div>
       </section>
       {/* Projects Section */}
-      <section id="work" className="py-32 container px-4 relative">
+      <section id="work" className="py-16 md:py-32 container px-4 relative">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -258,7 +258,7 @@ export default function Home() {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-7xl font-bold mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-7xl font-bold mb-6">
             SELECTED <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-primary animate-gradient">WORK</span>
           </h2>
@@ -266,7 +266,7 @@ export default function Home() {
         </motion.div>
 
         <motion.div 
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -330,8 +330,8 @@ export default function Home() {
         </motion.div>
       </section>
       {/* About Section */}
-      <section id="about" className="py-32 container px-4 relative">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+      <section id="about" className="py-16 md:py-32 container px-4 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -376,17 +376,17 @@ export default function Home() {
         </div>
       </section>
       {/* Contact Section */}
-      <section id="contact" className="py-32 container px-4 relative">
+      <section id="contact" className="py-16 md:py-32 container px-4 relative">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-3xl transform -skew-y-2 -z-10" />
 
-        <div className="grid md:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-5xl md:text-6xl font-bold mb-8 leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-6xl font-bold mb-8 leading-tight">
               LET'S BUILD <br />
               SOMETHING <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary neon-text">AMAZING</span>
