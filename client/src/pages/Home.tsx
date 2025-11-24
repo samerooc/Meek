@@ -116,7 +116,7 @@ export default function Home() {
               </span>
             </motion.div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-8xl font-bold mb-6 leading-tight">
+            <h1 className="text-2xl sm:text-4xl md:text-8xl font-bold mb-4 sm:mb-6 leading-snug sm:leading-tight">
               CREATIVE <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary neon-text animate-gradient">
                 DEVELOPER
@@ -129,12 +129,12 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="mb-8 max-w-md"
             >
-              <p className="text-xl leading-relaxed font-medium">
+              <p className="text-base sm:text-lg md:text-xl leading-relaxed font-medium">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary via-primary to-secondary">Building immersive</span> digital experiences with{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-bold">code</span> and{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-primary font-bold">creativity.</span>
               </p>
-              <p className="text-xl leading-relaxed font-medium mt-4">
+              <p className="text-base sm:text-lg md:text-xl leading-relaxed font-medium mt-4">
                 Specializing in{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-primary font-bold">3D interactions</span>, motion design, and{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-primary font-bold">modern tech</span>.
