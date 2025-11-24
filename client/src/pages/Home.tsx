@@ -93,10 +93,23 @@ export default function Home() {
               </span>
             </h1>
 
-            <p className="text-xl text-muted-foreground mb-8 max-w-md leading-relaxed">
-              Building immersive digital experiences with code and creativity. 
-              Specializing in 3D interactions, motion design, and modern web technologies.
-            </p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="mb-8 max-w-md"
+            >
+              <p className="text-xl leading-relaxed font-medium">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary via-primary to-secondary">Building immersive</span> digital experiences with{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-bold">code</span> and{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-primary font-bold">creativity.</span>
+              </p>
+              <p className="text-xl leading-relaxed font-medium mt-4">
+                Specializing in{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-primary font-bold">3D interactions</span>, motion design, and{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-primary font-bold">modern tech</span>.
+              </p>
+            </motion.div>
 
             <div className="flex gap-4 flex-wrap">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
