@@ -331,30 +331,30 @@ export default function Home() {
       </section>
       {/* About Section */}
       <section id="about" className="py-8 sm:py-12 md:py-20 container px-4 relative">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-5xl font-bold mb-8">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 sm:mb-6 md:mb-8">
               About <span className="text-primary">Me</span>
             </h2>
-            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-4 sm:mb-6 leading-relaxed">
               I'm a full-stack developer passionate about building innovative web applications and tools. With expertise in React, Next.js, and modern web technologies, I create scalable solutions that solve real-world problems.
             </p>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
               From service marketplaces and personalized greeting platforms to content extraction tools and OSINT frameworks - I build projects that are both functional and engaging. Always exploring new technologies and pushing creative boundaries.
             </p>
-            <div className="flex gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <h3 className="text-primary font-bold mb-2">Stack</h3>
-                <p className="text-muted-foreground text-sm">React • Next.js • Tailwind • Framer Motion</p>
+                <h3 className="text-primary font-bold mb-2 text-sm">Stack</h3>
+                <p className="text-muted-foreground text-xs sm:text-sm">React • Next.js • Tailwind • Framer Motion</p>
               </div>
               <div>
-                <h3 className="text-primary font-bold mb-2">Expertise</h3>
-                <p className="text-muted-foreground text-sm">Web Apps • Marketplaces • OSINT Tools • UX</p>
+                <h3 className="text-primary font-bold mb-2 text-sm">Expertise</h3>
+                <p className="text-muted-foreground text-xs sm:text-sm">Web Apps • Marketplaces • OSINT Tools • UX</p>
               </div>
             </div>
           </motion.div>
@@ -364,9 +364,9 @@ export default function Home() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="glass-panel p-8 rounded-2xl neon-glow"
+            className="glass-panel p-4 sm:p-6 md:p-8 rounded-2xl neon-glow"
           >
-            <div className="space-y-6">
+            <div className="space-y-3 sm:space-y-4 md:space-y-6">
               <SkillBar label="React & Next.js" value={95} />
               <SkillBar label="Full Stack Development" value={90} />
               <SkillBar label="UI/UX Design" value={88} />
@@ -379,29 +379,29 @@ export default function Home() {
       <section id="contact" className="py-8 sm:py-12 md:py-20 container px-4 relative">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-3xl transform -skew-y-2 -z-10" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-start">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-2xl sm:text-3xl md:text-6xl font-bold mb-8 leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-6xl font-bold mb-4 sm:mb-6 md:mb-8 leading-tight">
               LET'S BUILD <br />
               SOMETHING <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary neon-text">AMAZING</span>
             </h2>
-            <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-6 sm:mb-8 md:mb-12 leading-relaxed">
               Have an exciting project or just want to chat? I'm always open to new opportunities and collaborations. Let's create something extraordinary together.
             </p>
 
-            <div className="flex gap-6 mb-8">
+            <div className="flex gap-4 sm:gap-6 mb-6 sm:mb-8">
               <SocialLink icon={<Mail />} href="mailto:Samevahiwala@gmail.com" label="Email" />
               <SocialLink icon={<Instagram />} href="https://www.instagram.com/meek.ankit/" label="Instagram" />
               <SocialLink icon={<Send />} href="https://t.me/Marco_x_terminator" label="Telegram" />
             </div>
 
-            <div className="space-y-4 text-muted-foreground">
+            <div className="space-y-2 sm:space-y-3 md:space-y-4 text-muted-foreground text-sm">
               <p>📧 Samevahiwala@gmail.com</p>
               <p>📱 00000000000</p>
               <p>💬 t.me/Marco_x_terminator</p>
@@ -413,44 +413,44 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="glass-panel p-10 rounded-2xl border border-white/10 neon-glow"
+            className="glass-panel p-4 sm:p-6 md:p-10 rounded-2xl border border-white/10 neon-glow"
           >
-            <form ref={formRef} onSubmit={handleSubmitForm} className="space-y-6">
-              <div className="grid grid-cols-2 gap-6">
+            <form ref={formRef} onSubmit={handleSubmitForm} className="space-y-4 sm:space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-primary tracking-widest">NAME</label>
+                  <label className="text-xs sm:text-sm font-medium text-primary tracking-widest">NAME</label>
                   <Input 
                     name="from_name"
-                    className="bg-background/50 border-secondary/30 focus:border-secondary text-white placeholder:text-muted-foreground/50 rounded-lg" 
+                    className="text-xs sm:text-sm bg-background/50 border-secondary/30 focus:border-secondary text-white placeholder:text-muted-foreground/50 rounded-lg" 
                     placeholder="John Doe"
                     required
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-primary tracking-widest">EMAIL</label>
+                  <label className="text-xs sm:text-sm font-medium text-primary tracking-widest">EMAIL</label>
                   <Input 
                     name="from_email"
                     type="email"
-                    className="bg-background/50 border-secondary/30 focus:border-secondary text-white placeholder:text-muted-foreground/50 rounded-lg" 
+                    className="text-xs sm:text-sm bg-background/50 border-secondary/30 focus:border-secondary text-white placeholder:text-muted-foreground/50 rounded-lg" 
                     placeholder="john@example.com"
                     required
                   />
                 </div>
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-medium text-primary tracking-widest">PROJECT TYPE</label>
+                <label className="text-xs sm:text-sm font-medium text-primary tracking-widest">PROJECT TYPE</label>
                 <Input 
                   name="project_type"
-                  className="bg-background/50 border-secondary/30 focus:border-secondary text-white placeholder:text-muted-foreground/50 rounded-lg" 
+                  className="text-xs sm:text-sm bg-background/50 border-secondary/30 focus:border-secondary text-white placeholder:text-muted-foreground/50 rounded-lg" 
                   placeholder="Web App / 3D Experience / Other"
                   required
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-medium text-primary tracking-widest">MESSAGE</label>
+                <label className="text-xs sm:text-sm font-medium text-primary tracking-widest">MESSAGE</label>
                 <Textarea 
                   name="message"
-                  className="bg-background/50 border-secondary/30 focus:border-secondary text-white placeholder:text-muted-foreground/50 min-h-[150px] rounded-lg" 
+                  className="text-xs sm:text-sm bg-background/50 border-secondary/30 focus:border-secondary text-white placeholder:text-muted-foreground/50 min-h-[120px] sm:min-h-[150px] rounded-lg" 
                   placeholder="Tell me about your project..."
                   required
                 />
@@ -481,11 +481,11 @@ export default function Home() {
         </div>
       </section>
       {/* Footer */}
-      <footer className="py-12 border-t border-white/5 text-center">
+      <footer className="py-8 sm:py-12 border-t border-white/5 text-center">
         <motion.div
           animate={{ opacity: [0.5, 1, 0.5] }}
           transition={{ duration: 3, repeat: Infinity }}
-          className="text-muted-foreground text-sm mb-4"
+          className="text-muted-foreground text-xs sm:text-sm mb-2 sm:mb-4"
         >© 2025 SAMEROOC • Designed & Built with ❤️ and code</motion.div>
         <p className="text-muted-foreground/50 text-xs">Made with Framer Motion • Three.js • Tailwind CSS</p>
       </footer>
