@@ -254,7 +254,7 @@ export default function Home() {
             description="Instant booking platform for local services like food, repairs, taxis, doctors, salons & more. Multi-category service discovery."
             color="from-blue-500 to-cyan-500"
             delay={0}
-            link="https://sameroochub.vercel.app"
+            link="https://meekhub.vercel.app"
             preview={sameroochubPreview}
           />
           <ProjectCard
