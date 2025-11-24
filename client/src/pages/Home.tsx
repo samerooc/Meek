@@ -249,7 +249,7 @@ export default function Home() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <ProjectCard
-            title="SameroocHub"
+            title="MeekHub"
             category="Service Marketplace"
             description="Instant booking platform for local services like food, repairs, taxis, doctors, salons & more. Multi-category service discovery."
             color="from-blue-500 to-cyan-500"
