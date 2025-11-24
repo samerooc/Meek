@@ -73,17 +73,17 @@ export default function Home() {
       />
       <Navbar />
       {/* Hero Section */}
-      <section className="relative w-full flex items-center justify-center overflow-visible pt-32 pb-16 sm:pt-0 sm:min-h-screen md:min-h-screen" style={{ minHeight: "100vh" }}>
+      <section className="relative w-full flex items-center justify-center overflow-hidden pt-20 pb-20 sm:pt-0 sm:pb-16 md:min-h-screen" style={{ minHeight: "auto" }}>
         <motion.div
           style={{ y, opacity }}
-          className="absolute inset-0 z-0"
+          className="absolute inset-0 z-0 top-0 left-0 right-0"
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background z-10" />
           <img
             src={heroBg}
             alt="Background"
             className="w-full h-full object-cover"
           />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background z-10" />
         </motion.div>
 
         {/* Floating Orbs - Smaller on mobile */}
@@ -223,13 +223,13 @@ export default function Home() {
         </div>
       </div>
       {/* Stats Section */}
-      <section className="py-12 sm:py-16 md:py-20 container mx-auto max-w-7xl px-3 sm:px-4 md:px-6">
+      <section className="py-16 sm:py-20 md:py-28 container mx-auto max-w-7xl px-3 sm:px-4 md:px-6 relative z-20">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, staggerChildren: 0.1 }}
           viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 md:gap-6"
+          className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6"
         >
           {[
             { number: "50+", label: "Projects Completed" },
@@ -250,13 +250,13 @@ export default function Home() {
         </motion.div>
       </section>
       {/* Projects Section */}
-      <section id="work" className="py-8 sm:py-12 md:py-20 container mx-auto max-w-7xl px-3 sm:px-4 md:px-6 relative">
+      <section id="work" className="py-16 sm:py-20 md:py-28 container mx-auto max-w-7xl px-3 sm:px-4 md:px-6 relative z-20">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-6 sm:mb-10 md:mb-20"
+          className="text-center mb-8 sm:mb-12 md:mb-20"
         >
           <h2 className="text-3xl sm:text-4xl md:text-7xl font-bold mb-6">
             SELECTED <br />
@@ -266,7 +266,7 @@ export default function Home() {
         </motion.div>
 
         <motion.div 
-          className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4 lg:gap-6"
+          className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5 lg:gap-6"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -330,8 +330,8 @@ export default function Home() {
         </motion.div>
       </section>
       {/* About Section */}
-      <section id="about" className="py-8 sm:py-12 md:py-20 container mx-auto max-w-7xl px-3 sm:px-4 md:px-6 relative">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10 md:gap-16 items-center">
+      <section id="about" className="py-16 sm:py-20 md:py-28 container mx-auto max-w-7xl px-3 sm:px-4 md:px-6 relative z-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -376,10 +376,10 @@ export default function Home() {
         </div>
       </section>
       {/* Contact Section */}
-      <section id="contact" className="py-8 sm:py-12 md:py-20 container mx-auto max-w-7xl px-3 sm:px-4 md:px-6 relative">
+      <section id="contact" className="py-16 sm:py-20 md:py-28 container mx-auto max-w-7xl px-3 sm:px-4 md:px-6 relative z-20">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-3xl transform -skew-y-2 -z-10" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10 md:gap-16 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-start">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -500,10 +500,10 @@ function ProjectCard({ title, category, description, color, delay, link, preview
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay }}
       viewport={{ once: true }}
-      className="w-full perspective-1000 grid-item-hover"
+      className="w-full h-auto perspective-1000 grid-item-hover flex flex-col"
     >
-      <Card3D className="h-full">
-        <div className="relative h-24 sm:h-32 md:h-40 lg:h-48 w-full rounded-lg bg-gradient-to-br overflow-hidden mb-2 sm:mb-3 md:mb-4 lg:mb-6">
+      <Card3D className="h-full flex flex-col">
+        <div className="relative h-20 sm:h-28 md:h-36 lg:h-40 w-full rounded-lg bg-gradient-to-br overflow-hidden mb-2 sm:mb-2 md:mb-3 flex-shrink-0">
           <img 
             src={preview} 
             alt={title}
@@ -511,10 +511,12 @@ function ProjectCard({ title, category, description, color, delay, link, preview
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
         </div>
-        <div className="space-y-1 sm:space-y-2 md:space-y-3">
-          <span className="text-[10px] sm:text-xs font-bold tracking-widest text-secondary uppercase">{category}</span>
-          <h3 className="text-xs sm:text-lg md:text-xl lg:text-2xl font-bold text-white">{title}</h3>
-          <p className="text-muted-foreground text-[10px] sm:text-xs leading-relaxed line-clamp-1 sm:line-clamp-2 hidden sm:block">
+        <div className="space-y-0.5 sm:space-y-1 md:space-y-2 flex-1 flex flex-col justify-between">
+          <div>
+            <span className="text-[9px] sm:text-xs font-bold tracking-widest text-secondary uppercase block">{category}</span>
+            <h3 className="text-xs sm:text-base md:text-lg lg:text-xl font-bold text-white line-clamp-1">{title}</h3>
+          </div>
+          <p className="text-muted-foreground text-[9px] sm:text-xs leading-snug line-clamp-1 sm:line-clamp-2 hidden sm:block">
             {description}
           </p>
           <motion.a
@@ -523,10 +525,10 @@ function ProjectCard({ title, category, description, color, delay, link, preview
             rel="noopener noreferrer"
             initial={{ x: -10 }}
             whileHover={{ x: 0 }}
-            className="pt-2 flex gap-2 items-center text-secondary hover:text-primary transition-colors cursor-pointer inline-block"
+            className="pt-1 flex gap-1 items-center text-secondary hover:text-primary transition-colors cursor-pointer inline-block text-xs"
           >
-            <span className="text-xs font-semibold">Visit Project</span>
-            <ExternalLink className="w-3 h-3" />
+            <span className="text-[10px] font-semibold">Visit</span>
+            <ExternalLink className="w-2.5 h-2.5" />
           </motion.a>
         </div>
       </Card3D>
@@ -580,16 +582,16 @@ function StatCard({ number, label }: { number: string; label: string }) {
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
       whileHover={{ scale: 1.05 }}
-      className="glass-panel p-6 rounded-lg text-center border border-primary/20 hover:border-primary/50 transition-all group"
+      className="glass-panel p-3 sm:p-4 md:p-6 rounded-lg text-center border border-primary/20 hover:border-primary/50 transition-all group"
     >
       <motion.h3
         animate={{ color: ["hsl(var(--primary))", "hsl(var(--secondary))", "hsl(var(--primary))"] }}
         transition={{ duration: 3, repeat: Infinity }}
-        className="text-4xl font-bold mb-2"
+        className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2"
       >
         {number}
       </motion.h3>
-      <p className="text-muted-foreground text-sm group-hover:text-foreground transition-colors">{label}</p>
+      <p className="text-muted-foreground text-xs sm:text-sm group-hover:text-foreground transition-colors">{label}</p>
     </motion.div>
   );
 }
