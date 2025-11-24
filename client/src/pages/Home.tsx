@@ -214,46 +214,36 @@ export default function Home() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <ProjectCard
-            title="Cyberpunk Dashboard"
-            category="Web Application"
-            description="A futuristic data visualization dashboard with real-time metrics and AI integration."
-            color="from-purple-500 to-indigo-500"
+            title="MeekHub"
+            category="Service Marketplace"
+            description="Instant booking platform for local services like food, repairs, taxis, doctors, salons & more. Multi-category service discovery."
+            color="from-blue-500 to-cyan-500"
             delay={0}
+            link="https://meekhub.vercel.app"
           />
           <ProjectCard
-            title="Neon Commerce"
-            category="E-Commerce"
-            description="Immersive shopping experience with 3D product previews and AR features."
-            color="from-cyan-500 to-blue-500"
-            delay={0.1}
-          />
-          <ProjectCard
-            title="Void Social"
-            category="Social Network"
-            description="Privacy-focused social platform with decentralized architecture."
+            title="GreetVerse"
+            category="Personalized Greetings"
+            description="Create beautiful personalized greeting websites with photo carousels, background music, AI suggestions & shareable links for any occasion."
             color="from-pink-500 to-rose-500"
+            delay={0.1}
+            link="https://greetverse.vercel.app"
+          />
+          <ProjectCard
+            title="StudyRana"
+            category="Content Extractor"
+            description="Upload .txt files to extract video (m3u8) and PDF links. Organized file management for study resources."
+            color="from-purple-500 to-indigo-500"
             delay={0.2}
+            link="https://studyrana.netlify.app"
           />
           <ProjectCard
-            title="Hologram Studio"
-            category="Design Tool"
-            description="Advanced 3D design tool with real-time collaboration and AI assistance."
-            color="from-orange-500 to-yellow-500"
-            delay={0.3}
-          />
-          <ProjectCard
-            title="Neural Network"
-            category="SaaS Platform"
-            description="AI-powered analytics platform with predictive modeling capabilities."
-            color="from-green-500 to-emerald-500"
-            delay={0.4}
-          />
-          <ProjectCard
-            title="Quantum Vault"
-            category="Security App"
-            description="Military-grade encryption tool with quantum-resistant algorithms."
+            title="RanaXHack Info"
+            category="OSINT Toolkit"
+            description="Open Source Intelligence framework for phone info, Instagram lookup, Telegram OSINT, UPI details & digital forensics."
             color="from-red-500 to-orange-500"
-            delay={0.5}
+            delay={0.3}
+            link="https://leaked-info.vercel.app"
           />
         </div>
       </section>
@@ -270,19 +260,19 @@ export default function Home() {
               About <span className="text-primary">Me</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              I'm a creative developer obsessed with building beautiful, performant digital experiences. With expertise spanning from modern web frameworks to advanced 3D graphics, I bring ideas to life through code.
+              I'm a full-stack developer passionate about building innovative web applications and tools. With expertise in React, Next.js, and modern web technologies, I create scalable solutions that solve real-world problems.
             </p>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              When I'm not coding, you'll find me exploring new technologies, contributing to open-source, or designing next-gen UX patterns.
+              From service marketplaces and personalized greeting platforms to content extraction tools and OSINT frameworks - I build projects that are both functional and engaging. Always exploring new technologies and pushing creative boundaries.
             </p>
             <div className="flex gap-6">
               <div>
                 <h3 className="text-primary font-bold mb-2">Stack</h3>
-                <p className="text-muted-foreground text-sm">React • Next.js • Three.js • Framer Motion</p>
+                <p className="text-muted-foreground text-sm">React • Next.js • Tailwind • Framer Motion</p>
               </div>
               <div>
                 <h3 className="text-primary font-bold mb-2">Expertise</h3>
-                <p className="text-muted-foreground text-sm">3D Web • Performance • Animation • UX</p>
+                <p className="text-muted-foreground text-sm">Web Apps • Marketplaces • OSINT Tools • UX</p>
               </div>
             </div>
           </motion.div>
@@ -295,10 +285,10 @@ export default function Home() {
             className="glass-panel p-8 rounded-2xl neon-glow"
           >
             <div className="space-y-6">
-              <SkillBar label="Web Development" value={95} />
-              <SkillBar label="3D Graphics" value={85} />
-              <SkillBar label="UI/UX Design" value={90} />
-              <SkillBar label="Performance Optimization" value={92} />
+              <SkillBar label="React & Next.js" value={95} />
+              <SkillBar label="Full Stack Development" value={90} />
+              <SkillBar label="UI/UX Design" value={88} />
+              <SkillBar label="API Integration" value={92} />
             </div>
           </motion.div>
         </div>
@@ -385,7 +375,7 @@ export default function Home() {
   );
 }
 
-function ProjectCard({ title, category, description, color, delay }: { title: string; category: string; description: string; color: string; delay: number }) {
+function ProjectCard({ title, category, description, color, delay, link }: { title: string; category: string; description: string; color: string; delay: number; link: string }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -408,14 +398,17 @@ function ProjectCard({ title, category, description, color, delay }: { title: st
           <p className="text-muted-foreground text-sm leading-relaxed">
             {description}
           </p>
-          <motion.div
+          <motion.a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
             initial={{ x: -10 }}
             whileHover={{ x: 0 }}
-            className="pt-4 flex gap-2 items-center text-secondary hover:text-primary transition-colors cursor-pointer"
+            className="pt-4 flex gap-2 items-center text-secondary hover:text-primary transition-colors cursor-pointer inline-block"
           >
-            <span className="text-sm font-semibold">Explore Project</span>
+            <span className="text-sm font-semibold">Visit Project</span>
             <ExternalLink className="w-4 h-4" />
-          </motion.div>
+          </motion.a>
         </div>
       </Card3D>
     </motion.div>
