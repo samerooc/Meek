@@ -443,7 +443,7 @@ export default function Home() {
           animate={{ opacity: [0.5, 1, 0.5] }}
           transition={{ duration: 3, repeat: Infinity }}
           className="text-muted-foreground text-sm mb-4"
-        >© 2025 MEEK • Designed & Built with ❤️ and code</motion.div>
+        >© 2025 SAMEROOC • Designed & Built with ❤️ and code</motion.div>
         <p className="text-muted-foreground/50 text-xs">Made with Framer Motion • Three.js • Tailwind CSS</p>
       </footer>
     </div>
