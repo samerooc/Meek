@@ -8,6 +8,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { ArrowRight, Github, Linkedin, Twitter, ExternalLink, Sparkles, Zap, Wind, Mail, Send, Instagram } from "lucide-react";
 import heroBg from "@assets/generated_images/abstract_3d_dark_neon_geometric_landscape_for_portfolio_background.png";
 import avatar from "@assets/generated_images/3d_stylized_developer_avatar.png";
+import meekhubPreview from "@assets/generated_images/meekhub_service_marketplace_homepage_ui.png";
+import greetversePreview from "@assets/generated_images/greetverse_greeting_creator_homepage.png";
+import studyranaPreview from "@assets/generated_images/studyrana_file_extractor_interface.png";
+import ranaxhackPreview from "@assets/generated_images/ranaxhack_osint_toolkit_dashboard.png";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -220,6 +224,7 @@ export default function Home() {
             color="from-blue-500 to-cyan-500"
             delay={0}
             link="https://meekhub.vercel.app"
+            preview={meekhubPreview}
           />
           <ProjectCard
             title="GreetVerse"
@@ -228,6 +233,7 @@ export default function Home() {
             color="from-pink-500 to-rose-500"
             delay={0.1}
             link="https://greetverse.vercel.app"
+            preview={greetversePreview}
           />
           <ProjectCard
             title="StudyRana"
@@ -236,6 +242,7 @@ export default function Home() {
             color="from-purple-500 to-indigo-500"
             delay={0.2}
             link="https://studyrana.netlify.app"
+            preview={studyranaPreview}
           />
           <ProjectCard
             title="RanaXHack Info"
@@ -244,6 +251,7 @@ export default function Home() {
             color="from-red-500 to-orange-500"
             delay={0.3}
             link="https://leaked-info.vercel.app"
+            preview={ranaxhackPreview}
           />
         </div>
       </section>
@@ -375,27 +383,28 @@ export default function Home() {
   );
 }
 
-function ProjectCard({ title, category, description, color, delay, link }: { title: string; category: string; description: string; color: string; delay: number; link: string }) {
+function ProjectCard({ title, category, description, color, delay, link, preview }: { title: string; category: string; description: string; color: string; delay: number; link: string; preview: string }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay }}
       viewport={{ once: true }}
-      className="h-[450px] w-full perspective-1000 grid-item-hover"
+      className="h-[520px] w-full perspective-1000 grid-item-hover"
     >
       <Card3D>
-        <div className={`h-48 w-full rounded-lg bg-gradient-to-br ${color} mb-6 opacity-80 relative overflow-hidden`}>
-          <motion.div
-            animate={{ x: [0, 100, -100, 0] }}
-            transition={{ duration: 4, repeat: Infinity }}
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+        <div className="relative h-64 w-full rounded-lg bg-gradient-to-br overflow-hidden mb-6">
+          <img 
+            src={preview} 
+            alt={title}
+            className="w-full h-full object-cover"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
         </div>
-        <div className="space-y-4">
+        <div className="space-y-3">
           <span className="text-xs font-bold tracking-widest text-secondary uppercase">{category}</span>
           <h3 className="text-2xl font-bold text-white">{title}</h3>
-          <p className="text-muted-foreground text-sm leading-relaxed">
+          <p className="text-muted-foreground text-xs leading-relaxed line-clamp-2">
             {description}
           </p>
           <motion.a
@@ -404,10 +413,10 @@ function ProjectCard({ title, category, description, color, delay, link }: { tit
             rel="noopener noreferrer"
             initial={{ x: -10 }}
             whileHover={{ x: 0 }}
-            className="pt-4 flex gap-2 items-center text-secondary hover:text-primary transition-colors cursor-pointer inline-block"
+            className="pt-2 flex gap-2 items-center text-secondary hover:text-primary transition-colors cursor-pointer inline-block"
           >
-            <span className="text-sm font-semibold">Visit Project</span>
-            <ExternalLink className="w-4 h-4" />
+            <span className="text-xs font-semibold">Visit Project</span>
+            <ExternalLink className="w-3 h-3" />
           </motion.a>
         </div>
       </Card3D>
