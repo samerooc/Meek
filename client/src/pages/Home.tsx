@@ -8,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { ArrowRight, Github, Linkedin, Twitter, ExternalLink, Sparkles, Zap, Wind, Mail, Send, Instagram } from "lucide-react";
 import heroBg from "@assets/generated_images/abstract_3d_dark_neon_geometric_landscape_for_portfolio_background.png";
 import avatar from "@assets/generated_images/3d_stylized_developer_avatar.png";
-import sameroochubPreview from "@assets/generated_images/sameroochub_service_marketplace_homepage_ui.png";
+import sameroochubPreview from "@assets/generated_images/meekhub_service_marketplace_homepage_ui.png";
 import greetversePreview from "@assets/generated_images/greetverse_greeting_creator_homepage.png";
 import studyranaPreview from "@assets/generated_images/studyrana_file_extractor_interface.png";
 import ranaxhackPreview from "@assets/generated_images/ranaxhack_osint_toolkit_dashboard.png";
