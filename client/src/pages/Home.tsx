@@ -8,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { ArrowRight, Github, Linkedin, Twitter, ExternalLink, Sparkles, Zap, Wind, Mail, Send, Instagram } from "lucide-react";
 import heroBg from "@assets/generated_images/abstract_3d_dark_neon_geometric_landscape_for_portfolio_background.png";
 import avatar from "@assets/generated_images/3d_stylized_developer_avatar.png";
-import meekhubPreview from "@assets/generated_images/meekhub_service_marketplace_homepage_ui.png";
+import sameroochubPreview from "@assets/generated_images/sameroochub_service_marketplace_homepage_ui.png";
 import greetversePreview from "@assets/generated_images/greetverse_greeting_creator_homepage.png";
 import studyranaPreview from "@assets/generated_images/studyrana_file_extractor_interface.png";
 import ranaxhackPreview from "@assets/generated_images/ranaxhack_osint_toolkit_dashboard.png";
@@ -249,13 +249,13 @@ export default function Home() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <ProjectCard
-            title="MeekHub"
+            title="SameroocHub"
             category="Service Marketplace"
             description="Instant booking platform for local services like food, repairs, taxis, doctors, salons & more. Multi-category service discovery."
             color="from-blue-500 to-cyan-500"
             delay={0}
-            link="https://meekhub.vercel.app"
-            preview={meekhubPreview}
+            link="https://sameroochub.vercel.app"
+            preview={sameroochubPreview}
           />
           <ProjectCard
             title="GreetVerse"
