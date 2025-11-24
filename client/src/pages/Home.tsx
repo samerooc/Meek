@@ -1,6 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import emailjs from "@emailjs/browser";
 import { Navbar } from "@/components/layout/navbar";
 import { Card3D } from "@/components/ui/3d-card";
 import { Button } from "@/components/ui/button";
@@ -29,32 +28,38 @@ export default function Home() {
     };
 
     window.addEventListener("mousemove", handleMouseMove);
-    
-    // Initialize EmailJS (free tier)
-    emailjs.init("YOUR_PUBLIC_KEY_HERE");
-    
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  const handleSubmitForm = async (e: React.FormEvent) => {
+  const handleSubmitForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
     try {
       if (formRef.current) {
-        // Sending to your email using EmailJS
-        await emailjs.sendForm(
-          "YOUR_SERVICE_ID", 
-          "YOUR_TEMPLATE_ID", 
-          formRef.current
-        );
-        setSubmitStatus("success");
-        formRef.current.reset();
-        setTimeout(() => setSubmitStatus("idle"), 3000);
+        const formData = new FormData(formRef.current);
+        
+        // Using Formspree - just change the endpoint to YOUR Formspree form endpoint
+        const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+          method: "POST",
+          body: formData,
+          headers: {
+            "Accept": "application/json"
+          }
+        });
+
+        if (response.ok) {
+          setSubmitStatus("success");
+          formRef.current.reset();
+          setTimeout(() => setSubmitStatus("idle"), 3000);
+        } else {
+          setSubmitStatus("error");
+          setTimeout(() => setSubmitStatus("idle"), 3000);
+        }
       }
     } catch (error) {
-      console.error("Email send failed:", error);
+      console.error("Form submission failed:", error);
       setSubmitStatus("error");
       setTimeout(() => setSubmitStatus("idle"), 3000);
     } finally {
