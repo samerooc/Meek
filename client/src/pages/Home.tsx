@@ -250,13 +250,13 @@ export default function Home() {
         </motion.div>
       </section>
       {/* Projects Section */}
-      <section id="work" className="py-16 md:py-20 sm:py-32 container px-4 relative">
+      <section id="work" className="py-8 sm:py-12 md:py-20 container px-4 relative">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-8 sm:mb-12 md:mb-20"
         >
           <h2 className="text-3xl sm:text-4xl md:text-7xl font-bold mb-6">
             SELECTED <br />
@@ -266,7 +266,7 @@ export default function Home() {
         </motion.div>
 
         <motion.div 
-          className="grid grid-cols-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4 lg:gap-6"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -330,7 +330,7 @@ export default function Home() {
         </motion.div>
       </section>
       {/* About Section */}
-      <section id="about" className="py-16 md:py-20 sm:py-32 container px-4 relative">
+      <section id="about" className="py-8 sm:py-12 md:py-20 container px-4 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -376,7 +376,7 @@ export default function Home() {
         </div>
       </section>
       {/* Contact Section */}
-      <section id="contact" className="py-16 md:py-20 sm:py-32 container px-4 relative">
+      <section id="contact" className="py-8 sm:py-12 md:py-20 container px-4 relative">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-3xl transform -skew-y-2 -z-10" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
@@ -500,10 +500,10 @@ function ProjectCard({ title, category, description, color, delay, link, preview
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay }}
       viewport={{ once: true }}
-      className="h-[520px] w-full perspective-1000 grid-item-hover"
+      className="h-auto sm:h-[280px] md:h-[350px] lg:h-[420px] w-full perspective-1000 grid-item-hover"
     >
       <Card3D>
-        <div className="relative h-64 w-full rounded-lg bg-gradient-to-br overflow-hidden mb-6">
+        <div className="relative h-24 sm:h-32 md:h-40 lg:h-48 w-full rounded-lg bg-gradient-to-br overflow-hidden mb-2 sm:mb-3 md:mb-4 lg:mb-6">
           <img 
             src={preview} 
             alt={title}
@@ -511,10 +511,10 @@ function ProjectCard({ title, category, description, color, delay, link, preview
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
         </div>
-        <div className="space-y-3">
-          <span className="text-xs font-bold tracking-widest text-secondary uppercase">{category}</span>
-          <h3 className="text-2xl font-bold text-white">{title}</h3>
-          <p className="text-muted-foreground text-xs leading-relaxed line-clamp-2">
+        <div className="space-y-1 sm:space-y-2 md:space-y-3">
+          <span className="text-[10px] sm:text-xs font-bold tracking-widest text-secondary uppercase">{category}</span>
+          <h3 className="text-xs sm:text-lg md:text-xl lg:text-2xl font-bold text-white">{title}</h3>
+          <p className="text-muted-foreground text-[10px] sm:text-xs leading-relaxed line-clamp-1 sm:line-clamp-2 hidden sm:block">
             {description}
           </p>
           <motion.a
