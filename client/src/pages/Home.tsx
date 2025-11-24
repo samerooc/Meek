@@ -28,7 +28,6 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-white overflow-hidden">
       {/* Animated Background Grid */}
       <div className="fixed inset-0 cyber-grid opacity-10 pointer-events-none" />
-
       {/* Cursor Glow */}
       <motion.div
         className="fixed w-48 h-48 rounded-full pointer-events-none mix-blend-screen"
@@ -39,9 +38,7 @@ export default function Home() {
         }}
         transition={{ type: "spring", damping: 30, stiffness: 100 }}
       />
-
       <Navbar />
-
       {/* Hero Section */}
       <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
         <motion.div
@@ -176,7 +173,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-
       {/* Skills Marquee */}
       <div className="w-full bg-gradient-to-r from-secondary/10 to-primary/10 border-y border-primary/20 py-12 overflow-hidden relative">
         <div className="absolute inset-0 scan-effect pointer-events-none" />
@@ -191,7 +187,6 @@ export default function Home() {
           ))}
         </div>
       </div>
-
       {/* Stats Section */}
       <section className="py-20 container px-4">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -201,7 +196,6 @@ export default function Home() {
           <StatCard number="∞" label="Creativity" />
         </div>
       </section>
-
       {/* Projects Section */}
       <section id="work" className="py-32 container px-4 relative">
         <motion.div
@@ -263,7 +257,6 @@ export default function Home() {
           />
         </div>
       </section>
-
       {/* About Section */}
       <section id="about" className="py-32 container px-4 relative">
         <div className="grid md:grid-cols-2 gap-16 items-center">
@@ -310,7 +303,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-
       {/* Contact Section */}
       <section id="contact" className="py-32 container px-4 relative">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-3xl transform -skew-y-2 -z-10" />
@@ -380,16 +372,13 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-
       {/* Footer */}
       <footer className="py-12 border-t border-white/5 text-center">
         <motion.div
           animate={{ opacity: [0.5, 1, 0.5] }}
           transition={{ duration: 3, repeat: Infinity }}
           className="text-muted-foreground text-sm mb-4"
-        >
-          © 2024 MEEK • Designed & Built with ❤️ and code
-        </motion.div>
+        >© 2025 MEEK • Designed & Built with ❤️ and code</motion.div>
         <p className="text-muted-foreground/50 text-xs">Made with Framer Motion • Three.js • Tailwind CSS</p>
       </footer>
     </div>
