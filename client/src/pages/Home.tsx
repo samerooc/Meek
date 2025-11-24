@@ -196,8 +196,8 @@ export default function Home() {
       <section className="py-20 container px-4">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           <StatCard number="50+" label="Projects Completed" />
-          <StatCard number="100+" label="Happy Clients" />
-          <StatCard number="8+" label="Years Experience" />
+          <StatCard number="20+" label="Happy Clients" />
+          <StatCard number="1.5+" label="Years Experience" />
           <StatCard number="∞" label="Creativity" />
         </div>
       </section>
