@@ -42,12 +42,13 @@ export default function Home() {
       const projectType = formData.get("project_type");
       const message = formData.get("message");
 
-      // Create Telegram message
-      const telegramMessage = `📧 *New Contact Form Submission*\n\n*Name:* ${name}\n*Email:* ${email}\n*Project Type:* ${projectType}\n\n*Message:*\n${message}`;
-      const telegramUrl = `https://t.me/Marco_x_terminator?text=${encodeURIComponent(telegramMessage)}`;
+      // Create email
+      const emailSubject = `Portfolio Inquiry from ${name}`;
+      const emailBody = `Name: ${name}\nEmail: ${email}\nProject Type: ${projectType}\n\nMessage:\n${message}`;
+      const mailtoUrl = `mailto:Samevahiwala@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
 
-      // Open Telegram
-      window.open(telegramUrl, "_blank");
+      // Open email client
+      window.location.href = mailtoUrl;
 
       setSubmitStatus("success");
       formRef.current.reset();
@@ -418,7 +419,7 @@ export default function Home() {
                   animate={{ opacity: 1, y: 0 }}
                   className="p-4 rounded-lg bg-green-500/20 border border-green-500/50 text-green-400 text-sm text-center"
                 >
-                  ✅ Redirecting to Telegram! Send the message there.
+                  ✅ Opening your email client! Send the message from there.
                 </motion.div>
               )}
 
