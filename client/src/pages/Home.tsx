@@ -5,7 +5,7 @@ import { Card3D } from "@/components/ui/3d-card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { ArrowRight, Github, Linkedin, Twitter, ExternalLink, Sparkles, Zap, Wind } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Twitter, ExternalLink, Sparkles, Zap, Wind, Mail, Send, Instagram } from "lucide-react";
 import heroBg from "@assets/generated_images/abstract_3d_dark_neon_geometric_landscape_for_portfolio_background.png";
 import avatar from "@assets/generated_images/3d_stylized_developer_avatar.png";
 
@@ -319,15 +319,15 @@ export default function Home() {
             </p>
 
             <div className="flex gap-6 mb-8">
-              <SocialLink icon={<Github />} href="#" label="GitHub" />
-              <SocialLink icon={<Linkedin />} href="#" label="LinkedIn" />
-              <SocialLink icon={<Twitter />} href="#" label="Twitter" />
+              <SocialLink icon={<Mail />} href="mailto:Samevahiwala@gmail.com" label="Email" />
+              <SocialLink icon={<Instagram />} href="https://www.instagram.com/meek.ankit/" label="Instagram" />
+              <SocialLink icon={<Send />} href="https://t.me/Marco_x_terminator" label="Telegram" />
             </div>
 
             <div className="space-y-4 text-muted-foreground">
-              <p>📧 hello@devio.com</p>
-              <p>📱 +1 (555) 123-4567</p>
-              <p>📍 San Francisco, CA</p>
+              <p>📧 Samevahiwala@gmail.com</p>
+              <p>📱 00000000000</p>
+              <p>💬 t.me/Marco_x_terminator</p>
             </div>
           </motion.div>
 
@@ -375,7 +375,7 @@ export default function Home() {
           transition={{ duration: 3, repeat: Infinity }}
           className="text-muted-foreground text-sm mb-4"
         >
-          © 2024 Dev.io Portfolio • Designed & Built with ❤️ and code
+          © 2024 MEEK • Designed & Built with ❤️ and code
         </motion.div>
         <p className="text-muted-foreground/50 text-xs">Made with Framer Motion • Three.js • Tailwind CSS</p>
       </footer>

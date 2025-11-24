@@ -13,7 +13,7 @@ export function Navbar() {
       <div className="glass-panel flex items-center gap-8 px-8 py-4 rounded-full border border-white/10 neon-glow">
         <Link href="/">
           <span className="text-2xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary hover:opacity-80 transition-opacity cursor-pointer">
-            DEV.IO
+            MEEK
           </span>
         </Link>
 
