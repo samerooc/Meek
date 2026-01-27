@@ -112,7 +112,7 @@ export default function Home() {
               className="inline-block mb-6"
             >
               <span className="text-primary font-display text-lg tracking-widest flex items-center gap-2">
-                <Sparkles className="w-5 h-5" /> WELCOME TO THE FUTURE
+                <Sparkles className="w-5 h-5" /> WELCOME TO THE ankit hub
               </span>
             </motion.div>
 
@@ -232,7 +232,7 @@ export default function Home() {
           className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6"
         >
           {[
-            { number: "50+", label: "Projects Completed" },
+            { number: "90+", label: "Projects Completed" },
             { number: "20+", label: "Happy Clients" },
             { number: "1.5+", label: "Years Experience" },
             { number: "∞", label: "Creativity" }
@@ -278,7 +278,7 @@ export default function Home() {
               description: "Instant booking platform for local services like food, repairs, taxis, doctors, salons & more. Multi-category service discovery.",
               color: "from-blue-500 to-cyan-500",
               link: "https://meekhub.vercel.app",
-              preview: sameroochubPreview,
+              preview: meekhubPreview,
               delay: 0
             },
             {
@@ -397,14 +397,14 @@ export default function Home() {
 
             <div className="flex gap-4 sm:gap-6 mb-6 sm:mb-8">
               <SocialLink icon={<Mail />} href="mailto:Samevahiwala@gmail.com" label="Email" />
-              <SocialLink icon={<Instagram />} href="https://www.instagram.com/meek.ankit/" label="Instagram" />
+              <SocialLink icon={<Instagram />} href="https://www.instagram.com/anniikk69/" label="Instagram" />
               <SocialLink icon={<Send />} href="https://t.me/Marco_x_terminator" label="Telegram" />
             </div>
 
             <div className="space-y-2 sm:space-y-3 md:space-y-4 text-muted-foreground text-sm">
               <p>📧 Samevahiwala@gmail.com</p>
               <p>📱 00000000000</p>
-              <p>💬 t.me/Marco_x_terminator</p>
+              <p>💬 t.me</p>
             </div>
           </motion.div>
 
